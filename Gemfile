@@ -54,3 +54,5 @@ gem 'font-awesome-sass'
 gem 'devise'
 
 gem 'dotenv-rails'
+
+gem 'rails_admin'
