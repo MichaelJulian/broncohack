@@ -56,3 +56,5 @@ gem 'devise'
 gem 'dotenv-rails'
 
 gem 'rails_admin'
+
+gem 'simple_form'
