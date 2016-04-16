@@ -1,17 +1,22 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
-  root "home#index"
+  devise_for :users do 
+    get '/users/sign_out' => 'devise/sessions#destroy' 
+  end
+  
+  resources :users
+  root 'home#index'
 
-  get 'home/index'
+  resources :users do
+    member do
+      get 'profile'
+      get 'matches'
+    end
+  end
 
-  get 'users/index'
+  post    'create_friendships' => 'friendships#create'
+  delete  'destroy_friendships' => 'friendships#destroy'
 
-  get 'users/edit'
-
-  get 'users/profile'
-
-  get 'users/friends'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
