@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'profile'
-      get 'matches'
+      get 'friends'
+      get 'edit_profile'
+      get 'index'
     end
   end
 

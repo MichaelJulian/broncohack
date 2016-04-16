@@ -5,15 +5,15 @@
         <%= link_to root_path do %><i class="fa fa-users"></i> discover <% end %>
       </li>
 
-      <li class="<%= if params[:action] == "matches" then "active" end %> nav-btn">
-        <%= link_to matches_user_path(current_user) do %><i class="fa fa-heart"></i> matches <% end %>
+      <li class="<%= if params[:action] == "friends" then "active" end %> nav-btn">
+        <%= link_to friends_user_path(current_user) do %><i class="fa fa-heart"></i> friends <% end %>
+      </li>
+
+      <li class="<%= if params[:action] == "edit_profile" then "active" end %> nav-btn">
+        <%= link_to edit_profile_user_path(current_user) do %><i class="fa fa-cog"></i> edit profile <% end %>
       </li>
 
       <li class="<%= if params[:action] == "edit" then "active" end %> nav-btn">
-        <%= link_to edit_user_path(current_user) do %><i class="fa fa-cog"></i> edit profile <% end %>
-      </li>
-
-      <li class="nav-btn">
         <%= link_to edit_user_registration_path do %><i class="fa fa-cog"></i> account settings <% end %>
       </li>
 
@@ -26,7 +26,7 @@
       </button>
 
       <button type="button" class="navbar-toggle button-nav pull-right">
-        <%= link_to matches_user_path(current_user) do %><i class="fa fa-heart"></i><% end %>
+        <%= link_to friends_user_path(current_user) do %><i class="fa fa-heart"></i><% end %>
       </button>
 
   </div>

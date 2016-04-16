@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
   end
 
-  def edit
+  def edit_profile
   end
 
   def profile
@@ -10,4 +10,5 @@ class UsersController < ApplicationController
 
   def friends
   end
+
 end
