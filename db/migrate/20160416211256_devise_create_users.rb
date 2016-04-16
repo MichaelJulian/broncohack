@@ -46,17 +46,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    
-    create_table :goals do |t|
-      t.string :name
-      t.timestamps null: false
-    end
-
-    create_table :user_goals do |t|
-      t.references :user
-      t.references :goal
-      t.string :choice
-    end
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
