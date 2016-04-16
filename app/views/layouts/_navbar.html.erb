@@ -1,0 +1,24 @@
+<% if true %>
+  <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav">
+      
+    </ul>
+  </nav>
+  <div class="navbar navbar-default navbar-fixed-top">  
+      <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <i class="fa fa-cog"></i>
+      </button>
+
+      <button type="button" class="navbar-toggle button-nav pull-right">
+        
+      </button>
+
+  </div>
+
+<% else %>
+
+  <a class="navbar-brand" href="#">
+    <%= image_tag "logo_io_white.png", alt: "eBae logo", class: "logo-brand" %>
+  </a>
+
+<% end %>
