@@ -52,3 +52,5 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 
 gem 'devise'
+
+gem 'dotenv-rails'
