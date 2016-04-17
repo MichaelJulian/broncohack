@@ -3,6 +3,20 @@
 <br>
 <div class="container">
   <h1>Edit Profile</h1>
+  <div class="md-modal md-effect-14" id="modal-14">
+    <div class="md-content">
+      <h3>Sign up</h3>
+      <div>
+        <ul id="icons"></ul>
+        <button class="md-close" style="position: absolute; top: 0px; right: 0px;">X</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <center><button class="md-trigger" data-modal="modal-14">Select Interests</button></center>
+  <div class="md-overlay"></div><!-- the overlay element -->
+
   <%= simple_form_for(@user, html: {class: "form-signin"}) do |f| %>
   <%= f.error_notification %>
   <div class="row">
@@ -16,7 +30,6 @@
          </button>
          <ul class="dropdown-menu" id="dropdownList1" role="menu" aria-labelledby="dropdownMenu1">
           <li role="presentation" class="dropdown-header"> Choose One</li>
-          
         </ul>
       </div>
       <%= f.input :interest1, as: :hidden, label: false %>
@@ -95,6 +108,26 @@
 
 <script type="text/javascript">
 
+var emojis=[":nail_care:",":dancer:",":fork_knife_plate:",":cocktail:",":beer:",":wine_glass:",":icecream:",":pizza:",":sushi:",":soccer:",":basketball:",":football:",":baseball:",":tennis:",":volleyball:",":golf:",":ping_pong:",":badminton:",":skier:",":snowboarder:",":swimmer:",":surfer:",":fishing_pole_and_fish:",":lifter:",":mountain_bicyclist:",":tickets:",":art:",":microphone:",":guitar:",":video_game:",":bowling:",":musical_keyboard:",":sunrise:",":beach:",":roller_coaster:",":projector:",":telescope:",":microscope:",":ballot_box:",":star_and_crescent:",":wheel_of_dharma:",":cross:",":star_of_david:",":orthodox_cross:"];
+
+function populateIcons(id, classToAdd){
+  for(var i=0; i<emojis.length; i++){
+    var input=emojis[i];
+    var output = emojione.shortnameToImage(input);
+    var index = output.indexOf("//");
+    output = output.slice(0,index) + "http:" + output.slice(index);
+    output = '<a role="menuitem" tabindex="-1" href="#"> ' + output + ' ' + input.replace(':','').replace(':','') + '</a>'
+    var li = document.createElement("li");
+    li.innerHTML = output;
+    li.setAttribute("class", classToAdd);
+    li.setAttribute("role","presentation");
+    document.getElementById(id).appendChild(li);
+  }
+}
+window.onload = populateIcons('dropdownList1', 'interest1');
+window.onload = populateIcons('dropdownList2', 'interest2');
+window.onload = populateIcons('dropdownList3', 'interest3');
+
 $('.interest1').click(function(){
   $("#dropdownMenu1").text($(this).text());
   $("#dropdownMenu1").append(' <span class="caret"></span>');
@@ -119,26 +152,107 @@ $('.year').click(function(){
   $("#user_year").val($(this).text());
 });
 
-var emojis=[":nail_care:",":dancer:",":fork_knife_plate:",":cocktail:",":beer:",":wine_glass:",":icecream:",":pizza:",":sushi:",":soccer:",":basketball:",":football:",":baseball:",":tennis:",":volleyball:",":golf:",":ping_pong:",":badminton:",":skier:",":snowboarder:",":swimmer:",":surfer:",":fishing_pole_and_fish:",":lifter:",":mountain_bicyclist:",":tickets:",":art:",":microphone:",":guitar:",":video_game:",":bowling:",":musical_keyboard:",":sunrise:",":beach:",":roller_coaster:",":projector:",":telescope:",":microscope:",":ballot_box:",":star_and_crescent:",":wheel_of_dharma:",":cross:",":star_of_david:",":orthodox_cross:"];
+var ModalEffects = (function() {
 
-function populateIcons(id, classToAdd){
-  for(var i=0; i<emojis.length; i++){
-    var input=emojis[i];
+  function init() {
+
+    var overlay = document.querySelector( '.md-overlay' );
+
+    [].slice.call( document.querySelectorAll( '.md-trigger' ) ).forEach( function( el, i ) {
+
+      var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
+      close = modal.querySelector( '.md-close' );
+
+      function removeModal( hasPerspective ) {
+        classie.remove( modal, 'md-show' );
+
+        if( hasPerspective ) {
+          classie.remove( document.documentElement, 'md-perspective' );
+        }
+      }
+
+      function removeModalHandler() {
+        removeModal( classie.has( el, 'md-setperspective' ) ); 
+      }
+
+      el.addEventListener( 'click', function( ev ) {
+        classie.add( modal, 'md-show' );
+        overlay.removeEventListener( 'click', removeModalHandler );
+        overlay.addEventListener( 'click', removeModalHandler );
+
+        if( classie.has( el, 'md-setperspective' ) ) {
+          setTimeout( function() {
+            classie.add( document.documentElement, 'md-perspective' );
+          }, 25 );
+        }
+      });
+
+      close.addEventListener( 'click', function( ev ) {
+        ev.stopPropagation();
+        removeModalHandler();
+      });
+
+    } );
+
+}
+
+init();
+
+})();
+
+function showIcons(array){
+  for(var i=0; i<array.length; i++){
+    var input=array[i];
     var output = emojione.shortnameToImage(input);
     var index = output.indexOf("//");
     output = output.slice(0,index) + "http:" + output.slice(index);
-    output = '<a role="menuitem" tabindex="-1" href="#"> ' + output + " " + '</a>'
+    output = output.slice(0, output.length-2) + ' id = "' + input + '"' + output.slice(output.length-2);
     var li = document.createElement("li");
     li.innerHTML = output;
-    li.setAttribute("class", classToAdd);
-    li.setAttribute("role","presentation");
-    document.getElementById(id).appendChild(li);
+    document.getElementById('icons').appendChild(li);
   }
 }
-window.onload = populateIcons('dropdownList1', 'interest1');
-window.onload = populateIcons('dropdownList2', 'interest2');
-window.onload = populateIcons('dropdownList3', 'interest3');
 
+window.onload = showIcons(emojis);
 
+var count=0;
+var shortnames="";
+$('img').click(function(){
+  if ($(this).hasClass('selected')){
+    $(this).toggleClass('selected');
+    count--;
+    shortnames.replace(this.id, '');
+  }
+  else if(count<5){
+    $(this).toggleClass('selected');
+    count++;
+    shortnames += this.id
+  }
+  $("#user_interest1").val(shortnames);
+});
 </script>
 
+
+<style type="text/css">
+.emojione{
+  height: 4.5ex;
+  margin: 2ex .2em 2ex;
+}
+
+.emojione:hover {
+  transform: scale(1.5, 1.5);
+  opacity: 1;
+}
+
+ul#icons li {
+  display:inline;
+  margin: 10px;
+}
+
+.selected{
+  border-radius: 3px;
+  background-color: orange;
+  box-shadow: 2px 2px 2px 2px #333;
+  z-index: -100;
+}
+</style>

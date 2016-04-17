@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   
   root 'home#index'
-
+  get 'home/confirmation' => 'home#confirmation'
   resources :users do
     member do
       get 'profile'

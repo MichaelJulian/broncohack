@@ -4,4 +4,8 @@ class HomeController < ApplicationController
       redirect_to users_path
     end
   end
+
+  def confirmation
+  end
+  
 end
