@@ -1,9 +1,90 @@
+<div class="container">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+    <!-- All modals added here for the demo. You would of course just have one, dynamically created -->
+    <div class="md-modal md-effect-11" id="modal-11">
+      <div class="md-content">
+        <h3>Sign up</h3>
+        <div>
+          <%= render 'devise/registrations/new' %>
+          <button class="md-close" style="position: absolute; top: 0px; right: 0px;">X</button>
+        </div>
+      </div>
+    </div>
 
+    <div class="md-modal md-effect-10" id="modal-10">
+      <div class="md-content">
+        <h3>Log in</h3>
+        <div>
+          <%= render 'devise/sessions/new' %>
+          <button class="md-close" style="position: absolute; top: 0px; right: 0px;">X</button>
+        </div>
+      </div>
+    </div>
 
-<div class="container"><%= render 'devise/registrations/new' %></div>
+    <button class="md-trigger" data-modal="modal-11">Sign Up</button>
+    <button class="md-trigger" data-modal="modal-10">Log In</button>
+
+    
+    <div class="md-overlay"></div>
+</center>
+</div>
 
 
 <script type="text/javascript">
+
+var ModalEffects = (function() {
+
+  function init() {
+
+    var overlay = document.querySelector( '.md-overlay' );
+
+    [].slice.call( document.querySelectorAll( '.md-trigger' ) ).forEach( function( el, i ) {
+
+      var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
+        close = modal.querySelector( '.md-close' );
+
+      function removeModal( hasPerspective ) {
+        classie.remove( modal, 'md-show' );
+
+        if( hasPerspective ) {
+          classie.remove( document.documentElement, 'md-perspective' );
+        }
+      }
+
+      function removeModalHandler() {
+        removeModal( classie.has( el, 'md-setperspective' ) ); 
+      }
+
+      el.addEventListener( 'click', function( ev ) {
+        classie.add( modal, 'md-show' );
+        overlay.removeEventListener( 'click', removeModalHandler );
+        overlay.addEventListener( 'click', removeModalHandler );
+
+        if( classie.has( el, 'md-setperspective' ) ) {
+          setTimeout( function() {
+            classie.add( document.documentElement, 'md-perspective' );
+          }, 25 );
+        }
+      });
+
+      close.addEventListener( 'click', function( ev ) {
+        ev.stopPropagation();
+        removeModalHandler();
+      });
+
+    } );
+
+  }
+
+  init();
+
+})();
 
   jQuery(function($){
 

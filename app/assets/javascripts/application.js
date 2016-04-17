@@ -21,4 +21,6 @@
 //= require jquery.transform2d
 //= require tinysort
 //= require jquery.tinysort
+//= require classie
+//= require modalEffects
 //= require_tree .
