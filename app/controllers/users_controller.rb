@@ -3,7 +3,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :edit_profile, :profile, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.where('id != ?', current_user.id)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def show

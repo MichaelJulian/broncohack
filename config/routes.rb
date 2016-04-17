@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
-  post    'create_friendships' => 'friendships#create'
-  delete  'destroy_friendships' => 'friendships#destroy'
+  post    'create_friendship' => 'friendships#create'
+  delete  'destroy_friendship' => 'friendships#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
