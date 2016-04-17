@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :edit_profile, :profile, :update, :destroy]
 
   def index
-    @users = User.where('id != ?', current_user.id)
-
+    # @users = User.where('id != ?', current_user.id)
+    @users = User.all
     respond_to do |format|
       format.html
       format.js
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def users_params
-    params.require(:user).permit(:first_name, :last_name, :bio, :major, :year, :preference)
+    params.require(:user).permit(:first_name, :last_name, :bio, :major, :year, :preference, :image)
   end
 
 end

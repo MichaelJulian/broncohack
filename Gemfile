@@ -60,3 +60,5 @@ gem 'rails_admin'
 gem 'simple_form'
 
 gem 'paperclip'
+
+gem 'aws-sdk', '< 2.0'

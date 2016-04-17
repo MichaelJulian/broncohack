@@ -1,14 +1,21 @@
 class User < ActiveRecord::Base
   
   default_scope { order('id DESC') }
-
+  has_attached_file :image 
   has_many :friendships, dependent: :destroy
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
+  
+  validates_attachment_content_type :image, 
+    content_type:  /^image\/(png|gif|jpeg)/,
+    message: "Only images allowed"
 
+  validates :image, attachment_presence: true 
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
 
   def request_match(user2)
     self.friendships.create(friend: user2)

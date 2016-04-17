@@ -1,5 +1,5 @@
 <li id="<%= user.id %>">
-  <div class="img"><%=  %> </div>
+  <div class="img"><%= image_tag user.image.url(:original), class: "img-responsive" %></div>
   <div class="user-name pull-left">
     <%= link_to profile_user_path(user.id) do %><%= user.email %>,<% end %>
   </div>
