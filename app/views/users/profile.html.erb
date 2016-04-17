@@ -1,2 +1,19 @@
-<h1>Users#profile</h1>
-<p>Find me in app/views/users/profile.html.erb</p>
+<br><br><br><br><br>
+<div class="container profile-fade">
+<h1><%= @user.first_name + " " + @user.last_name %></h1>
+<p><%= @user.year + " - " + @user.major + " major" %>  </p>
+<div class="img profile-image"><%= image_tag @user.image.url(:original), class: "img-responsive" %></div>
+<br>
+<center>
+    <small>
+    <span class="profile-interest"> <%= @user.interest1 %></span> 
+    <span class="profile-interest"> <%= @user.interest2 %></span> 
+    <span class="profile-interest"> <%= @user.interest3 %></span>  
+    </small>
+  </center>
+<br>
+<center><div>
+<%= @user.bio %>
+</div></center>
+<br><br><br>
+</div>

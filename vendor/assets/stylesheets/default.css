@@ -149,9 +149,15 @@ button {
 	text-transform: uppercase;
 	cursor: pointer;
 	display: inline-block;
-	margin: 3px 2px;
+	/*margin: 3px 2px;*/
 	border-radius: 2px;
 }
+
+.profile-dropdown {
+	margin: 0px 0px;
+	text-transform: none;
+}
+
 
 button:hover {
 	background: #A5281B;

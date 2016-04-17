@@ -1,11 +1,16 @@
 <li id="<%= user.id %>">
   <div class="img"><%= image_tag user.image.url(:original), class: "img-responsive" %></div>
   <div class="user-name pull-left">
-    <%= link_to profile_user_path(user.id) do %><%= user.email %>,<% end %>
+    <%= link_to profile_user_path(user.id) do %><%= user.first_name %><% end %>
   </div>
-  <div class="user-location text-right"><i class="fa fa-mortar-board"> </i> <%= user.email %></div>
-  <div><%= %></div>
-<div>Profile InfoProfile InfoProfile InfoProfile InfoProfile InfoProfile InfoProfile InfoProfile InfoProfile Info</div>
+  <div class="user-location text-right"><i class="fa fa-mortar-board"></i> <%= user.major %></div>
+  <center>
+    <small>
+    <span class="profile-interest"> <%= user.interest1 %></span> 
+    <span class="profile-interest"> <%= user.interest2 %></span> 
+    <span class="profile-interest"> <%= user.interest3 %></span>  
+    </small>
+  </center>
   
   <div class="like"></div>
   <div class="dislike"></div>

@@ -11,3 +11,12 @@
 @import "tools";
 @import "component";
 @import "default";
+
+.profile-image > img {
+  border-radius: 10px;
+}
+
+.profile-fade {
+  background: rgba(50,50,50,.20);
+  border-radius: 10px;
+}

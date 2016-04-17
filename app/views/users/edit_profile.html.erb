@@ -9,12 +9,12 @@
     <div class="col col-xs-4">
       <h4 class="text"><small style="color: white;">Activity #1</small></h4>
       <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle profile-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
           <%= if current_user.interest1.nil? 
            "Interest #1" else current_user.interest1 end %>
            <span class="caret"></span>
          </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
           <li role="presentation" class="dropdown-header"> Choose One</li>
           <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
             <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">:romance:</a>
@@ -38,7 +38,7 @@
     <div class="col col-xs-4">
       <h4 class="text"><small style="color: white;">Activity #1</small></h4>
       <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle profile-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
           <%= if current_user.interest2.nil? 
            "Interest" else current_user.interest2 end %>
            <span class="caret"></span>
@@ -67,7 +67,7 @@
     <div class="col col-xs-4">
       <h4 class="text"><small style="color: white;">Activity #3</small></h4>
       <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle profile-dropdown" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
           <%= if current_user.interest3.nil? 
            "Interest" else current_user.interest3 end %>
            <span class="caret"></span>
@@ -97,13 +97,37 @@
   <h4 class="text"><small style="color: white;">Profile Description</small></h4>
   <%= f.input :bio, as: :text, class: "form-control", label: false, :input_html => { :rows => 5, class: 'form-control', value: current_user.bio } %>
 
-  <h4 class="text"><small style="color: white;">Major</small></h4>
-  <%= f.input :major, label: false, :input_html => { class: 'form-control', value: current_user.major } %>
-
+  <div class="row">
+    <div class="col col-xs-6">
+      <div>
+      <h4 class="text"><small style="color: white;">Major</small></h4>
+      <%= f.input :major, label: false, :input_html => { class: 'form-control', value: current_user.major } %>
+    </div>
+    </div>
+    <div class="col col-xs-6">
+      <h4 class="text"><small style="color: white;">Year</small></h4>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle profile-dropdown" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-expended="true">
+          <%= current_user.year || "Year" %>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+          <li role="presentation" class="dropdown-header"> Year</li>
+          <li role="presentation" class="year"><a role="menuitem" tabindex="-1" href="#"> First Year </a></li>
+          <li role="presentation" class="year"><a role="menuitem" tabindex="-1" href="#"> Sophomore </a></li>
+          <li role="presentation" class="year"><a role="menuitem" tabindex="-1" href="#"> Junior </a></li>
+          <li role="presentation" class="year"><a role="menuitem" tabindex="-1" href="#"> Senior </a></li>
+        </ul>
+      </div>
+      <%= f.input :year, as: :hidden, label: false %>
+    </div>
+  </div>
   <br>
   <center>
-  <%= image_tag "#{current_user.image}", size: "150x128" %>
-  <%= f.input :image %>
+    <%= image_tag "#{current_user.image}", size: "150x128" %>
+    <br>
+    <br>
+    <%= f.input :image, label: false %>
   </center>
   <br>
 
@@ -130,5 +154,11 @@ $('.interest3').click(function(){
   $("#dropdownMenu3").append(' <span class="caret"></span>');
   $("#user_interest3").val($(this).text());
 });
+
+$('.year').click(function(){
+    $("#dropdownMenu4").text($(this).text());
+    $("#dropdownMenu4").append(' <span class="caret"></span>');
+    $("#user_year").val($(this).text());
+  });
 
 </script>
