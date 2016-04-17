@@ -2,13 +2,133 @@
 <br>
 <br>
 <div class="container">
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit_profile.html.erb</p>
-<%= simple_form_for(@user, html: {class: "form-signin"}) do |f| %>
+  <h1>Edit Profile</h1>
+  <%= simple_form_for(@user, html: {class: "form-signin"}) do |f| %>
   <%= f.error_notification %>
+  <div class="row">
+    <div class="col col-xs-4">
+      <h4 class="text"><small style="color: white;">Activity #1</small></h4>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          <%= if current_user.interest1.nil? 
+           "Interest #1" else current_user.interest1 end %>
+           <span class="caret"></span>
+         </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation" class="dropdown-header"> Choose One</li>
+          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">:romance:</a>
+          </li>
+          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍻" src="//cdn.jsdelivr.net/emojione/assets/png/1F37B.png?v=1.2.4">:partying:</a>
+          </li>
+          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍁" src="//cdn.jsdelivr.net/emojione/assets/png/1F341.png?v=1.2.4">:chill:</a>
+          </li>
+          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="☕" src="//cdn.jsdelivr.net/emojione/assets/png/2615.png?v=1.2.4">:friends:</a>
+          </li>
+          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#">
+            <img draggable="false" class="emoji" alt="🏀" src="https://s.w.org/images/core/emoji/72x72/1f3c0.png">:sports:</a>
+          </li>
+        </ul>
+      </div>
+      <%= f.input :interest1, as: :hidden, label: false %>
+    </div>
+    <div class="col col-xs-4">
+      <h4 class="text"><small style="color: white;">Activity #1</small></h4>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+          <%= if current_user.interest2.nil? 
+           "Interest" else current_user.interest2 end %>
+           <span class="caret"></span>
+         </button>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          <li role="presentation" class="dropdown-header"> Choose One</li>
+          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">:romance:</a>
+          </li>
+          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍻" src="//cdn.jsdelivr.net/emojione/assets/png/1F37B.png?v=1.2.4">:partying:</a>
+          </li>
+          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍁" src="//cdn.jsdelivr.net/emojione/assets/png/1F341.png?v=1.2.4">:chill:</a>
+          </li>
+          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="☕" src="//cdn.jsdelivr.net/emojione/assets/png/2615.png?v=1.2.4">:friends:</a>
+          </li>
+          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#">
+            <img draggable="false" class="emoji" alt="🏀" src="https://s.w.org/images/core/emoji/72x72/1f3c0.png">:sports:</a>
+          </li>
+        </ul>
+      </div>
+      <%= f.input :interest2, as: :hidden, label: false %>
+    </div>
+    <div class="col col-xs-4">
+      <h4 class="text"><small style="color: white;">Activity #3</small></h4>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
+          <%= if current_user.interest3.nil? 
+           "Interest" else current_user.interest3 end %>
+           <span class="caret"></span>
+         </button>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+          <li role="presentation" class="dropdown-header"> Choose One</li>
+          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">:romance:</a>
+          </li>
+          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍻" src="//cdn.jsdelivr.net/emojione/assets/png/1F37B.png?v=1.2.4">:partying:</a>
+          </li>
+          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍁" src="//cdn.jsdelivr.net/emojione/assets/png/1F341.png?v=1.2.4">:chill:</a>
+          </li>
+          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="☕" src="//cdn.jsdelivr.net/emojione/assets/png/2615.png?v=1.2.4">:friends:</a>
+          </li>
+          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#">
+            <img draggable="false" class="emoji" alt="🏀" src="https://s.w.org/images/core/emoji/72x72/1f3c0.png">:sports:</a>
+          </li>
+        </ul>
+      </div>
+      <%= f.input :interest3, as: :hidden, label: false %>
+    </div>
+  </div>
+  <h4 class="text"><small style="color: white;">Profile Description</small></h4>
+  <%= f.input :bio, as: :text, class: "form-control", label: false, :input_html => { :rows => 5, class: 'form-control', value: current_user.bio } %>
 
-    <%= f.input :image %>
+  <h4 class="text"><small style="color: white;">Major</small></h4>
+  <%= f.input :major, label: false, :input_html => { class: 'form-control', value: current_user.major } %>
 
-    <%= f.button :submit, class: "btn btn-primary btn-block" %>
-<% end %>
+  <br>
+  <center>
+  <%= image_tag "#{current_user.image}", size: "150x128" %>
+  <%= f.input :image %>
+  </center>
+  <br>
+
+  <%= f.button :submit, class: "btn btn-primary btn-block" %>
+  <% end %>
 </div>
+
+<script type="text/javascript">
+
+$('.interest1').click(function(){
+  $("#dropdownMenu1").text($(this).text());
+  $("#dropdownMenu1").append(' <span class="caret"></span>');
+  $("#user_interest1").val($(this).text());
+});
+
+$('.interest2').click(function(){
+  $("#dropdownMenu2").text($(this).text());
+  $("#dropdownMenu2").append(' <span class="caret"></span>');
+  $("#user_interest2").val($(this).text());
+});
+
+$('.interest3').click(function(){
+  $("#dropdownMenu3").text($(this).text());
+  $("#dropdownMenu3").append(' <span class="caret"></span>');
+  $("#user_interest3").val($(this).text());
+});
+
+</script>
