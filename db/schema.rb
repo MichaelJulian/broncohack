@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 20160416214622) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "community"
     t.string   "gender"
     t.string   "year"
