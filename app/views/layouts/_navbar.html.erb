@@ -17,7 +17,7 @@
         <%= link_to edit_user_registration_path do %><i class="fa fa-cog"></i> account settings <% end %>
       </li>
 
-      <li class="nav-btn"><%= link_to destroy_user_session_path do %><i class="fa fa-cog"></i> log out <% end %></li>
+      <li class="nav-btn"><%= link_to destroy_user_session_path, :method => :delete do %><i class="fa fa-cog"></i> log out <% end %></li>
     </ul>
   </nav>
   <div class="navbar navbar-default navbar-fixed-top">  

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users do 
-    get '/users/sign_out' => 'devise/sessions#destroy' 
+    delete '/users/sign_out' => 'devise/sessions#destroy' 
+    get '/users/sign_in' => 'devise/sessions#create'
   end
   
-  resources :users
   root 'home#index'
 
   resources :users do
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       get 'profile'
       get 'friends'
       get 'edit_profile'
-      get 'index'
     end
   end
 

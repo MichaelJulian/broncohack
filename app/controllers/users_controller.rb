@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!  
-  before_action :set_user, only: [:edit_profile, :profile, :update, :destroy]
+  before_action :set_user, only: [:edit, :edit_profile, :profile, :update, :destroy]
 
   def index
     @users = User.all
@@ -11,6 +11,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
+  end
+
+  def edit_profile
     @user = current_user
   end
 
@@ -25,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def friends
-    # @friends = current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user)
+    @friends = current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user)
   end
 
   private
