@@ -1,3 +1,5 @@
+<br><br><br><br><br>
+<div class="container">
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -7,10 +9,20 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+<br>
+  
+    <%= f.submit "Send me reset password instructions", :class => "btn btn-primary btn-block" %>
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), :style => "color: white;", :class => "btn btn-primary btn-block" %><br />
+<br><br>
+  <div class="row">
+  <div class="col col-xs-6">
+  <%= link_to "Log in", new_session_path(resource_name), :class => "btn btn-primary btn-block"   %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+  <div class="col col-xs-6">
+  <%= link_to "Sign up", new_registration_path(resource_name), :class => "btn btn-primary btn-block"   %>
+</div>
+</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>

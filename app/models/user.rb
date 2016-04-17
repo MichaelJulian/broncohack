@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
     content_type:  /^image\/(png|gif|jpeg)/,
     message: "Only images allowed"
 
-  validates :image, attachment_presence: true 
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
