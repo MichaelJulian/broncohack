@@ -1,6 +1,6 @@
 <br><br><br><br><br>
 <div class="container profile-fade">
-<h1><%= @user.first_name + " " + @user.last_name %></h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 <p><%= @user.year + " - " + @user.major + " major" %>  </p>
 <div class="img profile-image"><%= image_tag @user.image.url(:original), class: "img-responsive" %></div>
 <br>
@@ -17,3 +17,13 @@
 </div></center>
 <br><br><br>
 </div>
+
+<script type="text/javascript">
+$(".profile-interest").each(function() {
+  
+    var output = emojione.shortnameToImage(this.innerHTML.trim());
+    index = output.indexOf("//");
+    output = output.slice(0,index) + "http:" + output.slice(index);
+    this.innerHTML = output;
+});
+</script>
