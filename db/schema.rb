@@ -35,7 +35,9 @@ ActiveRecord::Schema.define(version: 20160416214622) do
     t.boolean  "admin"
     t.string   "avatar"
     t.boolean  "active_flag"
-    t.string   "interests"
+    t.string   "interest1"
+    t.string   "interest2"
+    t.string   "interest3"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

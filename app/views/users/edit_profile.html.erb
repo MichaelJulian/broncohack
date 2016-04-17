@@ -1,2 +1,27 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit_profile.html.erb</p>
+
+
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+        <li role="presentation" class="dropdown-header"> Choose One</li>
+          <li role="presentation" class = "goal" id="Romance"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">  Romance</a></li>
+          <li role="presentation" class = "goal" id="Partying"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍻" src="//cdn.jsdelivr.net/emojione/assets/png/1F37B.png?v=1.2.4">  Partying</a></li>
+          <li role="presentation" class = "goal" id="Chill"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="🍁" src="//cdn.jsdelivr.net/emojione/assets/png/1F341.png?v=1.2.4">  Chill</a></li>
+          <li role="presentation" class = "goal" id="Friends"><a role="menuitem" tabindex="-1" href="#"> 
+            <img class="emojione" alt="☕" src="//cdn.jsdelivr.net/emojione/assets/png/2615.png?v=1.2.4">  Friends </a></li>
+          <li role="presentation" class = "goal" id="Sports"><a role="menuitem" tabindex="-1" href="#">
+            <img draggable="false" class="emoji" alt="🏀" src="https://s.w.org/images/core/emoji/72x72/1f3c0.png">  Sports</li>
+      </ul>
+
+      <%= f.input :interests, as: :hidden, label: false %>
+
+<script type="text/javascript">
+  $('.goal').click(function(){
+    $("#dropdownMenu3").text($(this).text());
+    $("#dropdownMenu3").append(' <span class="caret"></span>');
+    $("#user_interests").val($(this).text());
+  });
+</script>

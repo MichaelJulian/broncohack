@@ -14,7 +14,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :admin
       t.string :avatar
       t.boolean :active_flag
-      t.string :interests
+      t.string :interest1
+      t.string :interest2
+      t.string :interest3
 
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
