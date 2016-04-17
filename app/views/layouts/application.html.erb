@@ -12,3 +12,24 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+$('.actions .like, .actions .dislike').click(function(e){
+  e.preventDefault();
+  $('#tinderslide').jTinder($(this).attr('class'));
+});
+
+$("#tinderslide").jTinder({
+  onDislike: function(item){
+    alert('Dislike image ' + (item.index()+1));
+  },
+  onLike: function (item) {
+    alert('Like image ' + (item.index()+1));
+  },
+  animationRevertSpeed: 200,
+  animationSpeed: 400,
+  threshold: 1,
+  likeSelector: '.like',
+  dislikeSelector: '.dislike'
+});
+</script>
