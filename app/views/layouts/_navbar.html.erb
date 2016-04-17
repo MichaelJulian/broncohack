@@ -6,7 +6,7 @@
       </li>
 
       <li class="<%= if params[:action] == "friends" then "active" end %> nav-btn">
-        <%= link_to friends_user_path(current_user) do %><i class="fa fa-heart"></i> friends <% end %>
+        <%= link_to friends_user_path(current_user) do %><i class="fa fa-hand-scissors-o"></i> friends <% end %>
       </li>
 
       <li class="<%= if params[:action] == "edit_profile" then "active" end %> nav-btn">
@@ -14,19 +14,19 @@
       </li>
 
       <li class="<%= if params[:action] == "edit" then "active" end %> nav-btn">
-        <%= link_to edit_user_registration_path do %><i class="fa fa-cog"></i> account settings <% end %>
+        <%= link_to edit_user_registration_path do %><i class="fa fa-cogs"></i> account settings <% end %>
       </li>
 
-      <li class="nav-btn"><%= link_to destroy_user_session_path, :method => :delete do %><i class="fa fa-cog"></i> log out <% end %></li>
+      <li class="nav-btn"><%= link_to destroy_user_session_path, :method => :delete do %><i class="fa fa-eject"></i> log out <% end %></li>
     </ul>
   </nav>
   <div class="navbar navbar-default navbar-fixed-top">  
       <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-        <i class="fa fa-cog"></i>
+        <i class="fa fa-reorder"></i>
       </button>
 
       <button type="button" class="navbar-toggle button-nav pull-right">
-        <%= link_to friends_user_path(current_user) do %><i class="fa fa-heart"></i><% end %>
+        <%= link_to friends_user_path(current_user) do %><i class="fa fa-hand-peace-o"></i><% end %>
       </button>
 
   </div>
