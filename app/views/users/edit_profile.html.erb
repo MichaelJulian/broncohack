@@ -14,23 +14,9 @@
            "Interest #1" else current_user.interest1 end %>
            <span class="caret"></span>
          </button>
-         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+         <ul class="dropdown-menu" id="dropdownList1" role="menu" aria-labelledby="dropdownMenu1">
           <li role="presentation" class="dropdown-header"> Choose One</li>
-          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">:romance:</a>
-          </li>
-          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🍻" src="//cdn.jsdelivr.net/emojione/assets/png/1F37B.png?v=1.2.4">:partying:</a>
-          </li>
-          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🍁" src="//cdn.jsdelivr.net/emojione/assets/png/1F341.png?v=1.2.4">:chill:</a>
-          </li>
-          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="☕" src="//cdn.jsdelivr.net/emojione/assets/png/2615.png?v=1.2.4">:friends:</a>
-          </li>
-          <li role="presentation" class = "interest1"><a role="menuitem" tabindex="-1" href="#">
-            <img draggable="false" class="emoji" alt="🏀" src="https://s.w.org/images/core/emoji/72x72/1f3c0.png">:sports:</a>
-          </li>
+          
         </ul>
       </div>
       <%= f.input :interest1, as: :hidden, label: false %>
@@ -43,23 +29,9 @@
            "Interest" else current_user.interest2 end %>
            <span class="caret"></span>
          </button>
-         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+
+         <ul class="dropdown-menu" id="dropdownList2" role="menu" aria-labelledby="dropdownMenu2">
           <li role="presentation" class="dropdown-header"> Choose One</li>
-          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">:romance:</a>
-          </li>
-          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🍻" src="//cdn.jsdelivr.net/emojione/assets/png/1F37B.png?v=1.2.4">:partying:</a>
-          </li>
-          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🍁" src="//cdn.jsdelivr.net/emojione/assets/png/1F341.png?v=1.2.4">:chill:</a>
-          </li>
-          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="☕" src="//cdn.jsdelivr.net/emojione/assets/png/2615.png?v=1.2.4">:friends:</a>
-          </li>
-          <li role="presentation" class = "interest2"><a role="menuitem" tabindex="-1" href="#">
-            <img draggable="false" class="emoji" alt="🏀" src="https://s.w.org/images/core/emoji/72x72/1f3c0.png">:sports:</a>
-          </li>
         </ul>
       </div>
       <%= f.input :interest2, as: :hidden, label: false %>
@@ -72,23 +44,9 @@
            "Interest" else current_user.interest3 end %>
            <span class="caret"></span>
          </button>
-         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+         <ul class="dropdown-menu" id="dropdownList3" role="menu" aria-labelledby="dropdownMenu3">
           <li role="presentation" class="dropdown-header"> Choose One</li>
-          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🌹" src="//cdn.jsdelivr.net/emojione/assets/png/1F339.png?v=1.2.4">:romance:</a>
-          </li>
-          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🍻" src="//cdn.jsdelivr.net/emojione/assets/png/1F37B.png?v=1.2.4">:partying:</a>
-          </li>
-          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="🍁" src="//cdn.jsdelivr.net/emojione/assets/png/1F341.png?v=1.2.4">:chill:</a>
-          </li>
-          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#"> 
-            <img class="emojione" alt="☕" src="//cdn.jsdelivr.net/emojione/assets/png/2615.png?v=1.2.4">:friends:</a>
-          </li>
-          <li role="presentation" class = "interest3"><a role="menuitem" tabindex="-1" href="#">
-            <img draggable="false" class="emoji" alt="🏀" src="https://s.w.org/images/core/emoji/72x72/1f3c0.png">:sports:</a>
-          </li>
+
         </ul>
       </div>
       <%= f.input :interest3, as: :hidden, label: false %>
@@ -100,9 +58,9 @@
   <div class="row">
     <div class="col col-xs-6">
       <div>
-      <h4 class="text"><small style="color: white;">Major</small></h4>
-      <%= f.input :major, label: false, :input_html => { class: 'form-control', value: current_user.major } %>
-    </div>
+        <h4 class="text"><small style="color: white;">Major</small></h4>
+        <%= f.input :major, label: false, :input_html => { class: 'form-control', value: current_user.major } %>
+      </div>
     </div>
     <div class="col col-xs-6">
       <h4 class="text"><small style="color: white;">Year</small></h4>
@@ -156,9 +114,31 @@ $('.interest3').click(function(){
 });
 
 $('.year').click(function(){
-    $("#dropdownMenu4").text($(this).text());
-    $("#dropdownMenu4").append(' <span class="caret"></span>');
-    $("#user_year").val($(this).text());
-  });
+  $("#dropdownMenu4").text($(this).text());
+  $("#dropdownMenu4").append(' <span class="caret"></span>');
+  $("#user_year").val($(this).text());
+});
+
+var emojis=[":nail_care:",":dancer:",":fork_knife_plate:",":cocktail:",":beer:",":wine_glass:",":icecream:",":pizza:",":sushi:",":soccer:",":basketball:",":football:",":baseball:",":tennis:",":volleyball:",":golf:",":ping_pong:",":badminton:",":skier:",":snowboarder:",":swimmer:",":surfer:",":fishing_pole_and_fish:",":lifter:",":mountain_bicyclist:",":tickets:",":art:",":microphone:",":guitar:",":video_game:",":bowling:",":musical_keyboard:",":sunrise:",":beach:",":roller_coaster:",":projector:",":telescope:",":microscope:",":ballot_box:",":star_and_crescent:",":wheel_of_dharma:",":cross:",":star_of_david:",":orthodox_cross:"];
+
+function populateIcons(id, classToAdd){
+  for(var i=0; i<emojis.length; i++){
+    var input=emojis[i];
+    var output = emojione.shortnameToImage(input);
+    var index = output.indexOf("//");
+    output = output.slice(0,index) + "http:" + output.slice(index);
+    output = '<a role="menuitem" tabindex="-1" href="#"> ' + output + " " + '</a>'
+    var li = document.createElement("li");
+    li.innerHTML = output;
+    li.setAttribute("class", classToAdd);
+    li.setAttribute("role","presentation");
+    document.getElementById(id).appendChild(li);
+  }
+}
+window.onload = populateIcons('dropdownList1', 'interest1');
+window.onload = populateIcons('dropdownList2', 'interest2');
+window.onload = populateIcons('dropdownList3', 'interest3');
+
 
 </script>
+
