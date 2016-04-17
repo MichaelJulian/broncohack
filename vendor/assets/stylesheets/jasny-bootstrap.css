@@ -619,3 +619,11 @@
   border-left: 0;
 }
 /*# sourceMappingURL=jasny-bootstrap.css.map */
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background: rgba(60,110,20,.05);
+   color: black;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td > a, .table-striped > tbody > tr:nth-child(2n) > th > a {
+   color: white;
+}
