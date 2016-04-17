@@ -14,6 +14,9 @@
 </html>
 
 <script type="text/javascript">
+
+$("#tinderslide > ul li").tsort({attr:"id"});
+
 $('.actions .like, .actions .dislike').click(function(e){
   e.preventDefault();
   $('#tinderslide').jTinder($(this).attr('class'));
@@ -32,4 +35,6 @@ $("#tinderslide").jTinder({
   likeSelector: '.like',
   dislikeSelector: '.dislike'
 });
+
+
 </script>
