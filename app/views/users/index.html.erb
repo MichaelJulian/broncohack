@@ -19,3 +19,15 @@
     <a href="#" class="like"><i class="fa fa-heart"></i></a>
   </div>
 </div>
+
+<script type="text/javascript">
+
+$(".profile-interest").each(function() {
+    // do something exciting with each div
+    var output = emojione.shortnameToImage(this.innerHTML);
+    index = output.indexOf("//");
+    output = output.slice(0,index) + "http:" + output.slice(index);
+    this.innerHTML = output;
+});
+
+</script>
